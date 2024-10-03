@@ -1,3 +1,4 @@
+
 const tutorials = [
   'what does the this keyword mean?',
   'What is the Constructor OO pattern?',
@@ -11,6 +12,19 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = () => {
-  return tutorials
+function titleCase(str) {
+  const result = [];
+  const wordsArray = str.split(' ');
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (typeof wordsArray[i][0] === 'string') {
+      const firstLetter = wordsArray[i][0].toUpperCase();
+      result.push(firstLetter + wordsArray[i].slice(1));
+    }
+  }
+  return result.join(' ');
 }
+
+const titleCased = () => {
+  return tutorials.map(titleCase);
+}
+titleCased;
